@@ -34,6 +34,22 @@ $ ionic build --prod --service-worker
 
 > Note: Features like Service Workers and many JavaScript APIs (such as geolocation) require the app be hosted in a secure context. When deploying an app through a hosting service, be aware they HTTPS will be required to take full advantage of Service Workers.
 
+## Support IE and Chrome <55
+
+If you want to support IE9/IE10/IE11 and Chrome <55, you can change polyfills active polyfills. You should check [polyfills.ts](https://github.com/ionic-team/starters/blob/master/angular/base/src/polyfills.ts)
+
+### Support Google Search/Googlebot
+
+If you want to support Google Search/Googlebot, you do not need Server Side Rendering. Googlebot can get resources from Single Page Application, when you change polyfills of `core-js/es6/array` active.
+
+```src/polyfills.ts
+// import 'core-js/es6/array';
+```
+
+You can check what resources Googlebot got from URL by using [URL inspection of Google Search Console](https://search.google.com/search-console/).
+
+> Google Search/Googlebot uses a renderer following the similar spec to Chrome 41. For more information, , see [guides/rendering](https://developers.google.com/search/docs/guides/rendering)
+
 ## Deploying
 
 ### Firebase
